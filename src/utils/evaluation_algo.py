@@ -1,12 +1,6 @@
-import nltk
-from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
-from nltk.translate.meteor_score import meteor_score
-from rouge_score import rouge_scorer
-import sacrebleu
+# evaluation_algo.py
 
-# Download necessary NLTK data (if not downloaded yet)
-nltk.download('wordnet', quiet=True)
-nltk.download('punkt', quiet=True)
+from src.commonconst import *
 
 # Function to calculate BLEU score with smoothing
 def calculate_bleu(reference, hypothesis):
@@ -22,18 +16,20 @@ def calculate_rouge(reference, hypothesis):
     scores = scorer.score(reference, hypothesis)
     return {key: {k: round(v, 2) for k, v in score._asdict().items()} for key, score in scores.items()}
 
-# Function to calculate METEOR score using NLTK
 def calculate_meteor(reference, hypothesis):
+    # Tokenize the reference and hypothesis
     reference_tokens = nltk.word_tokenize(reference.lower())
     hypothesis_tokens = nltk.word_tokenize(hypothesis.lower())
+    # Compute the METEOR score with the tokenized inputs
     score = meteor_score([reference_tokens], hypothesis_tokens)
+    
     return round(score, 2)
 
 # Function to calculate TER score using SacreBLEU
 def calculate_ter(reference, hypothesis):
     ter = sacrebleu.metrics.TER()
     score = ter.sentence_score(hypothesis, [reference])
-    return round(score.score / 100, 2)  # TER is returned as a percentage, scale it to 0-1 range
+    return round(score.score / 100, 2)  # TER is returned as a percentage, scaled to 0-1 range
 
 # Function to evaluate all metrics for a given reference and hypothesis
 def evaluate_all_metrics(reference, hypothesis):
