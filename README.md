@@ -4,7 +4,13 @@ The **Machine Evaluation AI Chatbot** project aims to create a benchmarking fram
 
 The project is structured to maintain clarity and modularity, enabling efficient data processing, algorithm evaluation, and result analysis. The core components of the project are divided into various categories such as data processing, evaluation algorithms, benchmarking, and output generation.
 
-## Folder and File Structure
+# Machine Evaluation AI Chatbot
+
+## Project Overview
+The **Machine Evaluation AI Chatbot** project is designed to benchmark various machine learning models by processing experimental data, applying custom evaluation algorithms, and generating performance metrics. It enables researchers and developers to compare models, assess their effectiveness, and output summarized results for further analysis in a modular and organized way.
+
+## Project Structure
+``````
 Machine_Evaluation_AI_Chatbot/
 │
 ├── main.py                              # Main script for running the program
@@ -20,11 +26,7 @@ Machine_Evaluation_AI_Chatbot/
 │   │   ├── evaluation_algo.py           # Evaluation algorithms for assessing performance
 │   └── outputs/                         # Directory for output-related processing
 │       └── output_processing.py         # Functions to handle output processing and report generation
-
-# Machine Evaluation AI Chatbot
-
-## Project Overview
-The **Machine Evaluation AI Chatbot** project is designed to benchmark various machine learning models by processing experimental data, applying custom evaluation algorithms, and generating performance metrics. It enables researchers and developers to compare models, assess their effectiveness, and output summarized results for further analysis in a modular and organized way.
+``````
 
 ## Installation and Setup
 
