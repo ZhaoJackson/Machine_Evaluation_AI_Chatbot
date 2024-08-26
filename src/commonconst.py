@@ -15,16 +15,19 @@ from nltk.translate.meteor_score import meteor_score
 from rouge_score import rouge_scorer
 import sacrebleu
 import sys
-import os
+import matplotlib.pyplot as plt
+import numpy as np
 
 # File Paths
 DOC_PATH = "src/experiments/data_input.docx"
 REFERENCE_CSV_PATH = "src/experiments/reference_text.csv"
 EXPERIMENT_CSV_PATH = "src/experiments/experiment_text.csv"
 OUTPUT_DIR = os.path.join("src", "outputs", "output_metrics")
+VIZ_DIR = os.path.join("src", "outputs", "visualizations")
 
 # Ensure the output directory exists
 os.makedirs(OUTPUT_DIR, exist_ok=True)
+os.makedirs(VIZ_DIR, exist_ok=True)
 
 # NLTK Downloads
 nltk.download('punkt')
@@ -49,7 +52,8 @@ def save_results_to_csv(result_entries, experiment_name):
     results_df.to_csv(output_file, index=False)
     print(f"Metrics for {experiment_name} saved to {output_file}")
 
-# Import functions from data_processing.py and text_transform.py
+# Import functions
 from src.experiments.data_processing import process_document_to_csv
 from src.utils.text_transform import process_experiment, preprocess_text, generate_ngrams, generate_paragraph_from_ngrams
 from src.utils.benchmark import process_experiments
+from src.outputs.output_processing import combine_metrics, generate_visualizations
