@@ -7,7 +7,7 @@ def combine_metrics(OUTPUT_DIR):
         if file_name.endswith('.csv'):
             experiment_df = pd.read_csv(os.path.join(OUTPUT_DIR, file_name))
             all_metrics.append(experiment_df)
-            
+    
     combined_metrics_df = pd.concat(all_metrics, ignore_index=True)
     combined_metrics_file = os.path.join(OUTPUT_DIR, 'combined_metrics.csv')
     combined_metrics_df.to_csv(combined_metrics_file, index=False)

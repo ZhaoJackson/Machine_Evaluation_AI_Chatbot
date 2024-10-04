@@ -1,5 +1,3 @@
-# benchmark.py
-
 from src.commonconst import *
 from src.utils.evaluation_algo import evaluate_all_metrics
 
@@ -19,6 +17,7 @@ def process_experiments():
                 hypothesis_text = experiment_row['Content'].values[0]
                 reference_text = reference_row['Content'].values[0]
                 
+                # Evaluate all metrics (excluding removed metrics)
                 metrics = evaluate_all_metrics(reference_text, hypothesis_text)
                 
                 result_entry = {
@@ -28,8 +27,13 @@ def process_experiments():
                     'ROUGE-2': metrics['ROUGE']['rouge2']['fmeasure'],
                     'ROUGE-L': metrics['ROUGE']['rougeL']['fmeasure'],
                     'METEOR': metrics['METEOR'],
-                    'TER': metrics['TER']
+                    'TER': metrics['TER'],
+                    'Ethical Alignment': metrics['Ethical Alignment'],
+                    'Sentiment Distribution': metrics['Sentiment Distribution'],
+                    'Inclusivity Score': metrics['Inclusivity Score'],
+                    'Complexity Score': metrics['Complexity Score']
                 }
                 result_entries.append(result_entry)
 
+        # Save results for the current experiment
         save_results_to_csv(result_entries, experiment_name)
