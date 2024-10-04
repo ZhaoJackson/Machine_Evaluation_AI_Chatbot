@@ -58,6 +58,14 @@ The project employs several well-known evaluation metrics commonly used in natur
 
 - **TER (Translation Edit Rate)**: TER measures the number of edits (insertions, deletions, substitutions, and shifts) needed to convert the machine-generated text into the reference text. A lower TER score indicates better performance, as fewer edits are required to match the reference. It is often used in machine translation evaluations.
 
+- **Ethical Alignment**: This metric uses a fine-tuned BERT model to evaluate the ethical alignment of the generated text. It is particularly relevant in social work and other contexts where ethical considerations are important.
+
+- **Sentiment Distribution**: Uses an emotion detection model to assess the sentiment of the generated text. It captures the distribution of various emotions, such as joy, sadness, anger, and fear, providing a nuanced view of the text’s emotional content.
+
+- **Inclusivity Score**: Evaluates the use of inclusive language by comparing the generated text against a predefined lexicon of inclusive terms. This is crucial in contexts where language sensitivity and diversity are prioritized.
+
+- **Complexity Score**: Measures the linguistic complexity of the generated text using readability metrics such as sentence length and syllable count. A lower complexity score indicates that the text is easier to read, which may be desirable in certain contexts.
+
 ### Functionality:
 Each of these metrics is used to evaluate the quality of machine-generated text in comparison to human-created reference text. Here’s how they are generally applied in the project:
 
@@ -68,6 +76,15 @@ Each of these metrics is used to evaluate the quality of machine-generated text 
 - **METEOR**: METEOR evaluates both precision and recall and also accounts for synonyms and word forms. This makes it useful for tasks where there’s a need for semantic flexibility, such as paraphrasing or machine translation.
 
 - **TER**: TER provides a more human-centric evaluation by measuring the edit distance between the machine output and the reference. This is useful when the goal is to assess how much effort would be required to correct the machine-generated text.
+
+- **Ethical Alignment**: This metric assesses whether the text adheres to specific ethical guidelines, which is essential in fields like social work or education.
+
+- **Sentiment Distribution**: Useful for understanding the emotional tone of the generated text, which can influence how the text is perceived by the audience.
+
+- **Inclusivity Score**: Measures how inclusive the language in the generated text is, focusing on diversity and non-discriminatory language.
+
+- **Complexity Score**: Evaluates the readability of the text, which can be crucial in determining its accessibility to a broader audience.
+
 
 ## Conclusion
 This project provides a framework for evaluating and benchmarking machine learning algorithms. By processing experimental data, running customized evaluation algorithms, and producing detailed reports, the project assists in gaining insights into model performance. It can be adapted to fit specific use cases by modifying the algorithms and benchmarks as needed.
