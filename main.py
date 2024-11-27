@@ -18,7 +18,6 @@ def main():
     for experiment_num in EXPERIMENT_IDS:
         reference_text = experiment_data.iloc[0]["Content"]
         processed_experiment = process_experiment(reference_text, experiment_num)
-
         processed_data.append([f"EXPERIMENT {experiment_num} - P1", processed_experiment['P1']])
         processed_data.append([f"EXPERIMENT {experiment_num} - P2", processed_experiment['P2']])
         processed_data.append([f"EXPERIMENT {experiment_num} - Whole", processed_experiment['Whole']])
@@ -31,7 +30,7 @@ def main():
     print(f"New experiment results saved to {EXPERIMENT_CSV_PATH}")
 
     # Step 3: Benchmarking (benchmark.py)
-    process_experiments()  # This now includes both original and extended metrics
+    process_experiments()
     print("Benchmarking complete. Results saved to the output directory.")
 
     # Step 4: Output Processing and Visualization (output_processing.py)
