@@ -62,16 +62,35 @@ WHOLE_TARGET_LENGTH = 200
 # Experiment IDs
 EXPERIMENT_IDS = [91, 91.0, 91.1, 91.2, 92.0, 92.1, 92.2]
 
-# Constants for new metrics
-ETHICAL_ALIGNMENT_THRESHOLD = 0.5
-CULTURAL_SENSITIVITY_LEXICON = set([
-    "diversity", "inclusion", "equality", "justice", "community", "multicultural",
-    "intersectional", "equity", "non-discriminatory", "cultural sensitivity"
-])
+# Constants for Ethical Alignment
+ETHICAL_ALIGNMENT_THRESHOLD = 0.7
+
+# Constants for Sentiment Distribution
+RELEVANT_EMOTIONS = [
+    'joy', 'sadness', 'anger', 'fear', 'trust', 'surprise', 'empathy', 'gratitude',
+    'hope', 'compassion', 'anticipation', 'frustration', 'disgust', 'relief',
+    'empowerment', 'vulnerability', 'resilience', 'satisfaction', 'solidarity'
+]
+SENTIMENT_BALANCE_PENALTY = 0.1  # Stricter penalty for extremes
+DEFAULT_SENTIMENT_SCORE = 0.15  # Reflects a slightly more positive baseline
+
+# Constants for Inclusivity Score
 INCLUSIVITY_LEXICON = set([
-    "they", "them", "their", "non-binary", "LGBTQ+", "accessible", "inclusive", "neurodivergent",
-    "underrepresented", "equitable", "affirming"
+    "equitable", "affirming", "accessible", "inclusive", "LGBTQ+", "allyship",
+    "intersectional", "anti-racist", "multicultural", "neurodivergent", 
+    "family-centered", "trauma-informed", "migrant-focused", "justice-involved",
+    "disability-friendly", "safe space", "age-inclusive", "bipoc", "gender-inclusive",
+    "dignity", "equity", "solidarity", "human rights", "diversity", "inclusion",
+    "justice", "compassion", "empathy", "non-discrimination", "anti-oppression",
+    "social well-being", "empowerment", "basic human needs", "advocacy", "collaboration"
 ])
+
+# Constants for Complexity Score
+COMPLEXITY_AVG_SENTENCE_LENGTH_WEIGHT = 0.6
+COMPLEXITY_FK_SCORE_WEIGHT = 0.4
+COMPLEXITY_MIN_SCORE = 5 
+COMPLEXITY_MAX_FK_SCORE = 100
+COMPLEXITY_MIN_FK_SCORE = 40
 
 # Utility function to load text data from CSV files
 def load_text_data(filepath):
